@@ -1,0 +1,52 @@
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .footer-container .bg-image {
+    width: 100px; /* Ajustez la largeur selon vos besoins */
+    height: 100px; /* Ajustez la hauteur selon vos besoins */
+  }
+  
+  .social-icons {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .footer-text {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+
+  .social-icons .social-icon {
+    font-size: 1rem; /* Taille normale de l'icône */
+    transition: transform 0.3s ease; /* Transition pour une animation fluide */
+}
+.social-icon {
+    font-size: 1rem; /* Taille normale de l'icône */
+}
+
+.social-icon:hover,
+.social-icon:focus {
+    background-color: transparent !important; /* Rendre le fond transparent */
+    box-shadow: none !important; /* Supprimer toute ombre */
+}
+.social-button {
+    width: 40px; /* Ajustez la largeur des boutons selon vos besoins */
+    height: 40px; /* Ajustez la hauteur des boutons selon vos besoins */
+}
+
+.social-icon {
+    font-size: 1.5rem; /* Ajustez la taille de la police de l'icône selon vos besoins */
+}
+
+.social-button:hover .social-icon {
+    transform: scale(1.5); /* Supprimez l'échelle au survol */
+}
+.bg-image {
+    transition: transform 0.3s ease; /* Ajoute une transition douce à la propriété transform */
+}
+
+.bg-image:hover {
+    transform: scale(1.1); /* Agrandit légèrement l'image au survol */
+}

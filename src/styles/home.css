@@ -1,0 +1,358 @@
+/* home.css */
+
+/* Sections */
+.section {
+    margin: 50px 0;
+}
+
+/* Banner Section */
+.banner-section {
+    background-color: #f5f5f5;
+    padding: 100px 0;
+    text-align: center;
+}
+
+.banner-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.banner-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.banner-content p {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+/* Image Section */
+.image-section {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 50px;
+}
+
+.image-container {
+    position: relative;
+    width: 45%;
+    overflow: hidden;
+}
+
+.image-container img {
+    width: 100%;
+    vertical-align: top;
+    transition: transform 0.3s ease;
+}
+
+.image-container:hover img {
+    transform: scale(1.1);
+}
+
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 20px;
+    box-sizing: border-box;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.image-container:hover .image-overlay {
+    opacity: 1;
+}
+
+/* CSS pour la nouvelle section */
+.new-section2 {
+    background-color: #f5f5f5;
+    padding: 50px 0;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 50px;
+}
+.new-section {
+    background-color: #ffffff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  
+   
+}
+
+.section-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.new-section-content {
+  
+    margin: 0 auto;
+    text-align: center;
+}
+
+.new-section-content h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.new-section-content p {
+    font-size: 1.2rem;
+}
+
+.video-container {
+    width: 100%;
+    max-width: 100%;
+  
+    overflow: hidden;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.col-7 {
+    flex: 1;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.carousel-section {
+    position: relative;
+    z-index: 1; /* ou tout autre valeur plus élevée que celui de la section parallaxe */
+}
+
+/* Additional Content Section */
+.additional-content {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 50px;
+}
+
+.content-item {
+    flex: 1;
+    max-width: 300px;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    transition: transform 0.3s ease;
+}
+
+.content-item:hover {
+    transform: translateY(-5px);
+}
+
+.content-item video {
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.content-item p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+/* Carousel */
+.carousel {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    margin: auto;
+}
+
+.carousel-image {
+    max-width: 100%;
+    height: 300px;
+    display: block;
+    margin: auto;
+}
+
+.carousel-inner {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.carousel-item {
+    flex: 0 0 auto;
+    width: 100%;
+}
+
+/* Arrow Buttons */
+.carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    cursor: pointer;
+}
+
+.carousel-control-prev {
+    left: 0;
+}
+
+.carousel-control-next {
+    right: 0;
+}
+
+/* Arrow Icons */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    width: 50px;
+    height: 50px;
+    background-size: cover;
+}
+
+/* Caption */
+.carousel-caption {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: #fff;
+}
+
+/* Overlay */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Example Animations */
+.carousel-item:nth-child(odd) {
+    animation: slideInLeft 0.5s ease forwards;
+}
+
+.carousel-item:nth-child(even) {
+    animation: slideInRight 0.5s ease forwards;
+}
+
+.carousel-caption {
+    animation: fadeIn 0.5s ease forwards;
+}
+
+
+/* Backheader transparent */
+
+
+ .parallax-section {
+    position: relative;
+    background-image: url('../assets/images/sources-homepage/galerie/A110_PE_1.jpg');
+    background-size: cover;
+    background-attachment: fixed; 
+    height: 100%; 
+    overflow: hidden; /* Cachez tout contenu qui dépasse*/
+  } 
+  .parallax-section2 {
+    position: relative;
+    background-image: url('../assets/images/sources-homepage/A110/Alpine-A110-1.jpg');
+    background-size: cover;
+    background-attachment: fixed; 
+    height: 100%; 
+    overflow: hidden; /* Cachez tout contenu qui dépasse*/
+  } 
+  
+.backheader{
+    background-color: transparent;
+    height: 700px; /* Assurez-vous que la section occupe la hauteur de l'écran */
+}
+.back2{
+    height: 300px;
+}
+.bien{
+    background-color: rgba(25, 83, 137, 0.657);
+    margin-top: 200px;
+    padding: 20px;
+    color: #ffffff;
+    
+}
+ /* CSS pour le tableau */
+table {
+    width: 70%;
+    border-collapse: collapse;
+    margin-bottom: 20px; /* Ajoute une marge en bas pour l'espace */
+    margin: auto;
+}
+
+/* Style des lignes du tableau */
+table td, table th {
+    border: 1px solid #ddd; /* Bordures fines autour des cellules */
+    padding: 8px; /* Espacement interne des cellules */
+    text-align: left; /* Alignement du texte à gauche */
+}
+
+/* Style de l'en-tête du tableau */
+table th {
+    background-color: #f2f2f2; /* Couleur de fond de l'en-tête */
+}
+
+/* Style des cellules du tableau au survol */
+table tr:hover {
+    background-color: #f5f5f5; /* Couleur de fond gris clair au survol */
+}
+/* .image{
+    height: 800px;
+    width: 100%;
+} */
+
+  

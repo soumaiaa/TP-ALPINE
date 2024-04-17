@@ -1,0 +1,131 @@
+.version-selection-container {
+  text-align: center;
+}
+
+.version-list {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.version-item {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.version-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.version-item.selected {
+  border-color: #007bff;
+}
+
+.version-item.selected:hover {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.selected-version {
+  margin-top: 40px;
+}
+
+.selected-version img {
+  max-width: 300px;
+  height: auto;
+}
+.version-list {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+    flex-wrap: wrap; /* Permet aux éléments de se retourner sur la ligne suivante si nécessaire */
+  }
+  
+  .version-item {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 50px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: calc(50% - 20px); /* Occupe 50% de la largeur avec un espacement de 20px */
+  }
+  
+  .selected-version {
+    margin-top: 40px;
+    margin-bottom: 50px;
+  }
+  
+  /* Media query pour les écrans plus petits */
+  @media screen and (max-width: 768px) {
+    .version-item {
+      width: calc(100% - 20px); /* Occupe toute la largeur avec un espacement de 20px */
+    }
+  }
+  .version-item img {
+    max-width: 100%; /* Assurez-vous que l'image ne dépasse pas la largeur du conteneur */
+    height: auto; /* Permet à l'image de conserver son ratio hauteur/largeur */
+    display: block; /* Assurez-vous que l'image est un élément de bloc */
+    margin: 0 auto; /* Centrez l'image horizontalement dans le conteneur */
+  }
+  
+  /* Media query pour les écrans plus petits */
+  @media screen and (max-width: 768px) {
+    .version-item img {
+      max-width: 80%; /* Réduisez légèrement la largeur de l'image sur les appareils mobiles */
+    }
+  }
+  .version-item h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #333; /* Couleur du titre de la version */
+  }
+  
+  .version-item p {
+    font-size: 1rem;
+    margin-bottom: 8px;
+    color: #666; /* Couleur des détails de la version */
+  }
+  
+  .selected-version h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #007bff; /* Couleur du titre de la version sélectionnée */
+  }
+  .version-selection-container h2{
+
+    margin-bottom: 10px;
+    margin-top: 50px;
+    color: #007bff; /* Couleur du titre de la version sélectionnée */
+  }
+  
+  .selected-version p {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    color: #555; /* Couleur des détails de la version sélectionnée */
+  }
+  .custom-button {
+    background-color: #007bff; /* Couleur de fond bleue */
+    color: #fff; /* Couleur du texte blanc */
+    padding: 10px 20px; /* Rembourrage */
+    border: none; /* Pas de bordure */
+    border-radius: 5px; /* Coins arrondis */
+    cursor: pointer; /* Curseur pointeur au survol */
+    font-weight: bold; /* Texte en gras */
+    font-size: 16px; /* Taille de la police */
+    transition: background-color 0.3s ease; /* Transition en douceur pour la couleur de fond */
+  }
+  
+  .custom-button:hover {
+    background-color: #0056b3; /* Couleur de fond bleue foncée au survol */
+  }
+  
+  
+  

@@ -1,0 +1,43 @@
+/* header.css */
+
+/* Logo */
+.logo {
+  width: 200px;
+  transition: width 0.3s ease;
+}
+
+.logo:hover {
+  width: 220px;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #212529; /* Couleur de fond */
+  color:rgba(25, 83, 137, 0.657); /* Couleur du texte */
+}
+
+.nav-link {
+  text-decoration: none;
+  color: rgba(25, 83, 137, 0.657); /* Couleur du texte des liens */
+ 
+ font-weight: bold;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  text-decoration: none; /* Supprimer le soulignement par défaut */
+  border-bottom: 5px solid  rgb(25, 83, 137); /* Ajouter une ligne de soulignement bleue */
+}
+
+/* Dropdown */
+.dropdown-menu {
+  background-color: #343a40; /* Couleur de fond du menu déroulant */
+}
+
+.dropdown-item {
+  color: #fff; /* Couleur du texte des éléments du menu déroulant */
+}
+
+.dropdown-item:hover {
+  background-color: #495057; /* Couleur de fond au survol des éléments du menu déroulant */
+}
