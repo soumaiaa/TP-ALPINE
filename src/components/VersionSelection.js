@@ -13,9 +13,7 @@ function VersionSelection() {
 
     const [selectedVersion, setSelectedVersion] = useState(null);
 
-    const handleVersionSelect = (version) => {
-        setSelectedVersion(version);
-    };
+
 
     const handleNextStep = () => {
         // Validez les sélections et redirigez vers la page de configuration avec la version sélectionnée
@@ -23,7 +21,11 @@ function VersionSelection() {
             window.location.href = `/configurator?version=${selectedVersion.name.toLowerCase()}`;
         }
     };
+    // Ajoutez une fonction pour passer la version sélectionnée au parent
+    const handleVersionSelect = (version) => {
+        setSelectedVersion(version);
 
+    };
     return (
         <div className="version-selection-container">
             <h2>Sélection de la version de la voiture :</h2>
@@ -42,11 +44,15 @@ function VersionSelection() {
                     <h3>{selectedVersion.name}</h3>
                     <img src={selectedVersion.image} alt={selectedVersion.name} />
                     <p>Prix de base: {selectedVersion.price} €</p>
-                    <Link to={`/configurator?version=${selectedVersion.name.toLowerCase()}&price=${selectedVersion.price}`}>
-                        <button className="custom-button">Construire votre voiture</button>
-                    </Link>
+                    {selectedVersion && selectedVersion.name && selectedVersion.price && (
+                        <Link to={`/configurator?version=${selectedVersion.name.toLowerCase()}&price=${selectedVersion.price}`}>
+                            <button className="custom-button">Construire votre voiture</button>
+                        </Link>
+                    )}
+
                 </div>
             )}
+
         </div>
     );
 }
