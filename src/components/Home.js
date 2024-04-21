@@ -45,7 +45,7 @@ const Home = () => {
             <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 0.5 }}>
               Explorez notre gamme de véhicules et personnalisez votre expérience de conduite dès aujourd'hui.
             </motion.p>
-            <Link to="/configurator" className="btn">Commencer la configuration</Link>
+            <Link to="/version-selection" className="btn">Commencer la configuration</Link>
           </div>
         </section>
         <div className="back2">
@@ -105,96 +105,104 @@ const Home = () => {
         </section>
       </div>
       {/* Carousel Section */}
-      
-        <section className="carousel-section section text-center">
-          <Carousel showArrows={true} showStatus={false} infiniteLoop={true} autoPlay={true} interval={5000} emulateTouch={true}>
-            <div>
-              <img src={image2} alt="Carousel Image 1" />
-              {/* <p>Description de l'image 3</p> */}
-            </div>
-            <div>
-              <img src={image3} alt="Carousel Image 2" />
-              {/* <p>Description de l'image 3</p> */}
-            </div>
-            <div>
-              <img src={image4} alt="Carousel Image 3" />
-              {/* <p>Description de l'image 3</p> */}
-            </div>
-            <div>
-              <img src={image5} alt="Carousel Image 4" />
-              {/* <p>Description de l'image 3</p> */}
-            </div>
-            <div>
-              <img src={image6} alt="Carousel Image 5" />
-              {/* <p>Description de l'image 3</p> */}
-            </div>
-            <div>
-              <img src={imagecaro1} alt="Carousel Image 1" />
-              {/* <p>Description de l'image 3</p> */}
-            </div>
-            <div>
-              <img src={imagecaro2} alt="Carousel Image 2" />
-              {/* <p>Description de l'image 3</p> */}
-            </div>
-            <div>
-              <img src={imagecaro3} alt="Carousel Image 3" />
-              {/* <p>Description de l'image 3</p> */}
-            </div>
-            <div>
-              <img src={imagecaro4} alt="Carousel Image 4" />
-              {/* <p>Description de l'image 3</p> */}
-            </div>
-           
 
-          </Carousel>
-        </section>
-        <div className="parallax-section2">
+      <section className="carousel-section section text-center">
+        <Carousel showArrows={true} showStatus={false} infiniteLoop={true} autoPlay={true} interval={5000} emulateTouch={true}>
+          <div>
+            <img src={image2} alt="Carousel Image 1" />
+            {/* <p>Description de l'image 3</p> */}
+          </div>
+          <div>
+            <img src={image3} alt="Carousel Image 2" />
+            {/* <p>Description de l'image 3</p> */}
+          </div>
+          <div>
+            <img src={image4} alt="Carousel Image 3" />
+            {/* <p>Description de l'image 3</p> */}
+          </div>
+          <div>
+            <img src={image5} alt="Carousel Image 4" />
+            {/* <p>Description de l'image 3</p> */}
+          </div>
+          <div>
+            <img src={image6} alt="Carousel Image 5" />
+            {/* <p>Description de l'image 3</p> */}
+          </div>
+          <div>
+            <img src={imagecaro1} alt="Carousel Image 1" />
+            {/* <p>Description de l'image 3</p> */}
+          </div>
+          <div>
+            <img src={imagecaro2} alt="Carousel Image 2" />
+            {/* <p>Description de l'image 3</p> */}
+          </div>
+          <div>
+            <img src={imagecaro3} alt="Carousel Image 3" />
+            {/* <p>Description de l'image 3</p> */}
+          </div>
+          <div>
+            <img src={imagecaro4} alt="Carousel Image 4" />
+            {/* <p>Description de l'image 3</p> */}
+          </div>
+
+
+        </Carousel>
+      </section>
+      <div className="parallax-section2">
         {/* Nouvelle Section */}
         <section className="new-section2">
           <div className="new-section-content banner-content">
-          <motion.h1 initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>
-             Structure
+            <motion.h1 initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>
+              Structure
             </motion.h1>
             <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 0.5 }}>
-            Avec seulement 1 102 kg sur la balance, le rapport poids-puissance de l'A110 est tout simplement remarquable. Aucune pierre n'a été laissée non retournée dans la quête de légèreté, du choix des matériaux aux accessoires, aux sièges et aux jantes.
+              Avec seulement 1 102 kg sur la balance, le rapport poids-puissance de l'A110 est tout simplement remarquable. Aucune pierre n'a été laissée non retournée dans la quête de légèreté, du choix des matériaux aux accessoires, aux sièges et aux jantes.
             </motion.p>
-         
-            <Link to="/configurator" className="btn">Voir Plus</Link>
-          </div> 
+
+            <Link to="/version-selection" className="btn">Voir Plus</Link>
+          </div>
         </section>
         <section className='backheader'>
         </section>
+      </div>
+      {/* Additional Content Section */}
+
+      <section className="additional-content section text-center">
+        <div className='row text-center'>
+          <div className='col-md-4  mt-2'>
+            <motion.div className="content-item" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 1 }}>
+              <video className='videos' autoPlay loop muted>
+                <source src={videofin1} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+              <p>Explorez notre dernière collection de véhicules.</p>
+              <Link to="/version-selection" className="btn">Voir la collection</Link>
+            </motion.div>
+          </div>
+          <div className='col-md-4  mt-2'>
+            <motion.div className="content-item" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 1.5 }}>
+              <video className='videos' autoPlay loop muted>
+                <source src={videofin2} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+              <p>Découvrez nos offres spéciales pour les nouveaux acheteurs.</p>
+              <Link to="/version-selection" className="btn">Voir les offres</Link>
+            </motion.div>
+          </div>
+          <div className='col-md-4  mt-2'>
+            <motion.div className="content-item" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 2 }}>
+              <video className='videos' autoPlay loop muted>
+                <source src={videofin3} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+              <p>Lisez les témoignages de nos clients satisfaits.</p>
+              <Link to="/version-selection" className="btn">Voir les témoignages</Link>
+            </motion.div>
+          </div>
         </div>
-        {/* Additional Content Section */}
-        
-        <section className="additional-content section">
-          <motion.div className="content-item" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 1 }}>
-            <video autoPlay loop muted>
-              <source src={videofin1} type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-            <p>Explorez notre dernière collection de véhicules.</p>
-            <Link to="/latest-collection" className="btn">Voir la collection</Link>
-          </motion.div>
-          <motion.div className="content-item" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 1.5 }}>
-            <video autoPlay loop muted>
-              <source src={videofin2} type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-            <p>Découvrez nos offres spéciales pour les nouveaux acheteurs.</p>
-            <Link to="/special-offers" className="btn">Voir les offres</Link>
-          </motion.div>
-          <motion.div className="content-item" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 2 }}>
-            <video autoPlay loop muted>
-              <source src={videofin3} type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-            <p>Lisez les témoignages de nos clients satisfaits.</p>
-            <Link to="/testimonials" className="btn">Voir les témoignages</Link>
-          </motion.div>
-        </section>
-       
-    
+      </section>
+
+
     </main>
   );
 }

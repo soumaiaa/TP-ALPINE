@@ -2,8 +2,18 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
   
+  }
+  .bg{
+    background-image: url('../assets/vector-blue-simple-background-design_374216-67.avif');
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .span{
+    font-size:larger;
+    color: #007bff; /* Couleur du titre de la version sélectionnée */
+  }
   .car-image-container {
     margin-bottom: 20px;
     position: relative;
@@ -105,7 +115,48 @@ h1{
   margin-top: 40px;
   margin-bottom: 40px;
 }
-/*sallerie*/
+/*Equipement*/
+.category {
+  margin-bottom: 20px;
+}
+.equipement{
+  background-color:  #007bff;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
 
+.imageEqui{
+  width: 70%;
+  border-radius: 50% 50% 0 0;
+}
+.imageoption{
+ width: 150px;
+ border-radius: 10px;
+}
+.imageoption:hover{
+  transform: scale(2);
+ 
+}
+.options {
+  display: none;
+  border-top: none;
+}
+.option1{
+  border: 1dvb solid #ddd;
+  padding: 10px;
+}
 
+.options.show {
+  display: block;
+}
 
+.option-item {
+  margin-bottom: 10px;
+}
+
+.selected {  
+  color: #777; /* Vous pouvez ajuster la couleur du texte selon vos préférences */
+}
+.selected2{
+  background-color: #777 ;
+}

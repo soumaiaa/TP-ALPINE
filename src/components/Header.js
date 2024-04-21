@@ -60,8 +60,7 @@ function Header() {
                         animate="visible"
                     >
                         <Nav className="me-auto">
-                            <Nav.Link href="/Configurator">Configurateur</Nav.Link>
-                            <Nav.Link href="/Summary">Récapitulatif</Nav.Link>
+                            <Nav.Link href="/version-selection">Configurateur</Nav.Link>    
                             <NavDropdown title="MODELES" id="basic-nav-dropdown">
                                 <NavDropdown.Item href="#action/3.1">Pure</NavDropdown.Item>
                                 <NavDropdown.Item href="#action/3.2">Legende</NavDropdown.Item>

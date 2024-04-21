@@ -13,7 +13,7 @@ function Footer() {
     return (
         <MDBFooter className='text-center text-white' style={{ backgroundColor: '#caced1' }}>
             <MDBContainer className='p-4'>
-                <section className=''>
+                {/* <section className=''>
                     <MDBRow>
                         <MDBCol lg='2' md='12' className='mb-4 mb-md-0'>
                             <MDBRipple
@@ -100,7 +100,7 @@ function Footer() {
                             </MDBRipple>
                         </MDBCol>
                     </MDBRow>
-                </section>
+                </section> */}
             </MDBContainer>
             <MDBContainer className='p-4 pb-0'>
                 <section className='mb-4 social-icons'>

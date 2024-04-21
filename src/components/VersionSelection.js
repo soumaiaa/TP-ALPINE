@@ -12,15 +12,6 @@ function VersionSelection() {
     ];
 
     const [selectedVersion, setSelectedVersion] = useState(null);
-
-
-
-    const handleNextStep = () => {
-        // Validez les sélections et redirigez vers la page de configuration avec la version sélectionnée
-        if (selectedVersion) {
-            window.location.href = `/configurator?version=${selectedVersion.name.toLowerCase()}`;
-        }
-    };
     // Ajoutez une fonction pour passer la version sélectionnée au parent
     const handleVersionSelect = (version) => {
         setSelectedVersion(version);
@@ -29,15 +20,6 @@ function VersionSelection() {
     return (
         <div className="version-selection-container">
             <h2>Sélection de la version de la voiture :</h2>
-            <div className="version-list">
-                {versions.map((version, index) => (
-                    <div key={index} className={`version-item ${selectedVersion === version ? 'selected' : ''}`} onClick={() => handleVersionSelect(version)}>
-                        <h3>{version.name}</h3>
-                        <img src={version.image} alt={version.name} />
-                        <p>Prix de base: {version.price} €</p>
-                    </div>
-                ))}
-            </div>
             {selectedVersion && (
                 <div className="selected-version">
                     <h2>Version sélectionnée :</h2>
@@ -52,6 +34,16 @@ function VersionSelection() {
 
                 </div>
             )}
+            <div className="version-list">
+                {versions.map((version, index) => (
+                    <div key={index} className={`version-item ${selectedVersion === version ? 'selected' : ''}`} onClick={() => handleVersionSelect(version)}>
+                        <h3>{version.name}</h3>
+                        <img src={version.image} alt={version.name} />
+                        <p>Prix de base: {version.price} €</p>
+                    </div>
+                ))}
+            </div>
+           
 
         </div>
     );
