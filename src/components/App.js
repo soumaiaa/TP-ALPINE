@@ -6,6 +6,7 @@ import Configurator from './Configurator';
 import Summary from './Summary';
 import Footer from './Footer';
 import '../styles/App.css';
+import FindDealer from './FindDealer';
 import VersionSelection from './VersionSelection';
 function App() {
   return (
@@ -15,8 +16,9 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} /> 
           <Route path="/configurator" element={<Configurator />} />
-          <Route path="/summary" element={<Summary />} />
+          <Route path="/summary" element={<Summary />} />          
           <Route path="/version-selection" element={ <VersionSelection />} />
+          <Route path="/find-dealer" element={ <FindDealer /> } />
         </Routes>
         <Footer />
       </div>

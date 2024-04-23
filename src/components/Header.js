@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 function Header() {
-    const cartItemsCount = useSelector(state => state.cart.items.length);
+    // const cartItemsCount = useSelector(state => state.cart.items.length);
 
     // Variants pour l'animation du logo au survol
     const logoVariants = {
@@ -60,12 +60,18 @@ function Header() {
                         animate="visible"
                     >
                         <Nav className="me-auto">
-                            <Nav.Link href="/version-selection">Configurateur</Nav.Link>    
+                            <Nav.Link href="/version-selection">Configurateur</Nav.Link>
                             <NavDropdown title="MODELES" id="basic-nav-dropdown">
-                                <NavDropdown.Item href="#action/3.1">Pure</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.2">Legende</NavDropdown.Item>
+                                <Link className='dropdown-item' to={'/configurator?version=pure&price=54700'}>
+                                    Pure
+                                </Link>
+                                <Link className='dropdown-item' to={'/configurator?version=legende&price=58500'}>
+                                    Legende
+                                </Link>
                                 <NavDropdown.Divider />
-                                <NavDropdown.Item href="#action/3.3">Nouveau Modèle</NavDropdown.Item>
+                                <Link className='dropdown-item' to={'/Version-Selection'}>
+                                    Nouveau Modèle
+                                </Link>
                             </NavDropdown>
                         </Nav>
                         <Nav.Link href="/find-dealer">

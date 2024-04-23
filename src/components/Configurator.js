@@ -88,9 +88,22 @@ import PersoInt1 from '../assets/images/configurateur/equipements/categories/per
 import PersoInt2 from '../assets/images/configurateur/equipements/categories/personnalisation interieure/pack-carbone.jpg'
 import PersoInt3 from '../assets/images/configurateur/equipements/categories/personnalisation interieure/logo-volant.jpg'
 import PersoInt4 from '../assets/images/configurateur/equipements/categories/personnalisation interieure/siege-chauffant.jpg'
-
-import imagebg from '../assets/images.jpg';
-
+//////////////PARTIE ACCESSOIRES/////////////////
+import TransportProtection1 from '../assets/images/configurateur/accessoires/transport et protection/alarme.jpg'
+import TransportProtection2 from '../assets/images/configurateur/accessoires/transport et protection/chaaine-neige.jpg'
+import TransportProtection3 from '../assets/images/configurateur/accessoires/transport et protection/extincteur.jpg'
+import TransportProtection4 from '../assets/images/configurateur/accessoires/transport et protection/fixation-extincteur.jpg'
+import TransportProtection5 from '../assets/images/configurateur/accessoires/transport et protection/kit-securite.jpg'
+import TransportProtection6 from '../assets/images/configurateur/accessoires/transport et protection/protection-obd.jpg'
+import Multimedia1 from '../assets/images/configurateur/accessoires/multimedia/support-camera.jpg'
+import Multimedia2 from '../assets/images/configurateur/accessoires/multimedia/support-smartphone.jpg'
+import Interieur1 from '../assets/images/configurateur/accessoires/interieur/filet-rangement.jpg'
+import Interieur2 from '../assets/images/configurateur/accessoires/interieur/tapis-coffre.jpg'
+import MaterielGarage1 from '../assets/images/configurateur/accessoires/garage/chargeur-batterie.jpg'
+import MaterielGarage2 from '../assets/images/configurateur/accessoires/garage/kit-outils.jpg'
+import Exterieur1 from '../assets/images/configurateur/accessoires/exterieur/antivol-jantes.jpg'
+import Exterieur2 from '../assets/images/configurateur/accessoires/exterieur/cabochons-metal.jpg'
+import Exterieur3 from '../assets/images/configurateur/accessoires/exterieur/housse.jpg'
 
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
@@ -101,13 +114,14 @@ import { faUndo, faRedo, } from '@fortawesome/free-solid-svg-icons';
 import IconeRoutation from '../assets/images/icone.png'
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import Summary from './Summary';
+import { faFireExtinguisher, faMobileAlt, faCar, faToolbox, faTshirt } from '@fortawesome/free-solid-svg-icons';
+
 
 function Configurator() {
 
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const basePrice = parseInt(queryParams.get('price') || 0);
-  const [totalPrice, setTotalPrice] = useState(0); // Modifier le prix total selon les besoins
   const version = queryParams.get('version');
 
   useEffect(() => {
@@ -288,8 +302,12 @@ function Configurator() {
       // Vérifier si l'option est déjà sélectionnée dans la catégorie
       const isOptionSelected = prevSelectedOptions[category].some(item => item.name === option.name);
       if (isOptionSelected) {
-        // Si l'option est déjà sélectionnée, ne rien faire
-        return prevSelectedOptions;
+        // Si l'option est déjà sélectionnée, la retirer de la liste des options sélectionnées
+        const updatedOptions = prevSelectedOptions[category].filter(item => item.name !== option.name);
+        return {
+          ...prevSelectedOptions,
+          [category]: updatedOptions
+        };
       } else {
         // Sinon, ajouter l'option à la liste des options sélectionnées
         return {
@@ -299,7 +317,6 @@ function Configurator() {
       }
     });
   };
-
   const handleCategoryClick = (category) => {
     setSelectedCategory(selectedCategory === category ? null : category);
   };
@@ -360,12 +377,13 @@ function Configurator() {
 
           </div>
           <div className='col-md-4'>
-            <button className={`btn ${selectedOptions[category].includes(option) ? 'selected2' : ''}`} onClick={() => {
-              handleOptionSelect(category, option);
-             
-            }}>
-              {selectedOptions[category].includes(option) ? 'Désélectionner' : 'Sélectionner'}
+            <button
+              className={`btnn ${selectedOptions[category].some(item => item.name === option.name) ? 'selected2' : ''}`}
+              onClick={() => handleOptionSelect(category, option)}
+            >
+              {selectedOptions[category].some(item => item.name === option.name) ? 'Désélectionner' : 'Sélectionner'}
             </button>
+
           </div>
         </div>
 
@@ -379,7 +397,7 @@ function Configurator() {
     return Object.entries(equipments).map(([category, options], index) => (
       <div key={index} className="category text-center ">
         {/* Affichage de l'image de la catégorie avec gestionnaire d'événements */}
-        <div className='row equipement' onClick={() => handleCategoryClick(category)}>        
+        <div className='row equipement' onClick={() => handleCategoryClick(category)}>
           <div className='col-md-7'>
             <img
               src={renderCategoryImage(category)}
@@ -424,18 +442,130 @@ function Configurator() {
     }
   };
 
+  const handleNextButtonEquipementClick = () => {
+    setShowAccessoiresOptions(true);
+  };
+  /////////////////////PARTIE ACCESSOIRES////////////////////////////////
+  const [showAccessoiresOptions, setShowAccessoiresOptions] = useState(false);
+  const [selectedCategoryAcc, setSelectedCategoryAcc] = useState(null);
+  const [selectedOptionsAcc, setSelectedOptionsAcc] = useState({
+    "Transport et protection": [],
+    "Multimédia": [],
+    "Intérieur": [],
+    "Matériel de garage": [],
+    "Exterieur": [],
+  });
+
+  const accessoryIcons = {
+    "Transport et protection": faFireExtinguisher,
+    "Multimédia": faMobileAlt,
+    "Intérieur": faCar,
+    "Matériel de garage": faToolbox,
+    "Exterieur": faCar,
+  };
+  // Liste des accessoires avec leurs options et prix
+  const accessories = {
+    "Transport et protection": [
+      { name: 'Extincteur 1kg avec manomètre', price: 22, image: TransportProtection3 },
+      { name: 'Chaîne à neige Premium Grip', price: 336, image: TransportProtection2 },
+      { name: 'Alarme', price: 22, image: TransportProtection1 },
+      { name: 'Protection Prise OBD', price: 336, image: TransportProtection4 },
+      { name: 'Kit de sécurité', price: 22, image: TransportProtection5 },
+      { name: 'Fixation extincteur', price: 336, image: TransportProtection6 },
+    ],
+    "Multimédia": [
+      { name: 'Support caméra sport', price: 89, image: Multimedia1 },
+      { name: 'Support smartphone magnétique', price: 21, image: Multimedia2 },
+    ],
+    "Intérieur": [
+      { name: 'Tapis de coffre', price: 83, image: Interieur2 },
+      { name: 'Filet de rangement - Horizontal', price: 59, image: Interieur1 },
+    ],
+    "Matériel de garage": [
+      { name: 'Chargeur batterie', price: 240, image: MaterielGarage1 },
+      { name: 'Kit Outils Alpine', price: 398, image: MaterielGarage2 },
+    ],
+    "Exterieur": [
+      { name: 'Cabochons Alpine - Métalisés', price: 24, image: Exterieur2 },
+      { name: 'Housse de protection Alpine', price: 216, image: Exterieur3 },
+      { name: 'Antivols pour jante - Noirs', price: 216, image: Exterieur1 },
+    ],
+  };
+
+  // Fonction pour gérer la sélection d'une option
+  const handleOptionSelectAcc = (category, option) => {
+    setSelectedOptionsAcc(prevSelectedOptionsAcc => {
+      const isOptionSelectedAcc = prevSelectedOptionsAcc[category].some(item => item.name === option.name);
+      if (isOptionSelectedAcc) {
+        const updatedOptions = prevSelectedOptionsAcc[category].filter(item => item.name !== option.name);
+        return {
+          ...prevSelectedOptionsAcc,
+          [category]: updatedOptions
+        };
+      } else {
+        return {
+          ...prevSelectedOptionsAcc,
+          [category]: [...prevSelectedOptionsAcc[category], option]
+        };
+      }
+    });
+  };
+
+  // Fonction pour afficher les options d'accessoires
+  const renderOptionsAcc = (options, category) => {
+    return options.map((option, index) => (
+      <div key={index} className="option-item">
+        <div className='row text-center option1'>
+          <div className='col-md-4'>
+            <img className='imageoption' src={option.image} alt={option.name} />
+          </div>
+          <div className='col-md-4'>
+            <h6>{option.name}</h6>
+            <p>Prix: {option.price}€</p>
+          </div>
+          <div className='col-md-4'>
+            <button
+              className={`btnn ${selectedOptionsAcc[category].some(item => item.name === option.name) ? 'selected2' : ''}`}
+              onClick={() => handleOptionSelectAcc(category, option)}
+            >
+              {selectedOptionsAcc[category].some(item => item.name === option.name) ? 'Désélectionner' : 'Sélectionner'}
+            </button>
+          </div>
+        </div>
+      </div>
+    ));
+  };
+
+
+  // Fonction pour afficher les accessoires
+  const renderAccessories = () => {
+    return Object.entries(accessories).map(([category, options], index) => (
+      <div key={index} className="category text-center ">
+        <div className='equipement' onClick={() => setSelectedCategoryAcc(selectedCategoryAcc === category ? null : category)}>
+          <div className={selectedCategoryAcc === category ? 'selected' : ''}>
+            <h2>
+              <FontAwesomeIcon icon={accessoryIcons[category]} /> {category}
+            </h2>
+          </div>
+        </div>
+        {selectedCategoryAcc === category && (
+          <div className="options show mt-5">{renderOptionsAcc(options, category)}</div>
+        )}
+      </div>
+    ));
+  };
 
 
   return (
     <div className=''>
       <div className="configurator-container d-flex align-items-center">
         {/* ///////////////partie couleur///////////////  */}
-        
+
         <h2 className='mt-2'>Version choisie:<span className='span'> "{selectedVersion.toUpperCase()}"</span></h2>
         <p>Prix de base: {basePrice}€</p>
         <h1>COULEUR</h1>
         <div className='row'>
-          <div className='col-md-8 text-center'>
+          <div className='col-sm-7 text-center'>
             <div className="car-image-container">
               <div className="car-image">
                 {selectedColor && (
@@ -451,7 +581,7 @@ function Configurator() {
           </div>
 
           {/* Afficher les boutons de sélection de couleur avec des images plus petites */}
-          <div className='col-md-4 text-center'>
+          <div className='col-sm-4 text-center'>
             <div className="color-selection ">
               <div className='row'>
                 <div className='col-md-8'>
@@ -482,7 +612,6 @@ function Configurator() {
         </div>
 
       </div>
-
       <div className='text-center mb-5'>
         {selectedColor && (
           <button className='btn' onClick={handleNextButtonClick}>Suivant</button>
@@ -492,6 +621,7 @@ function Configurator() {
 
       {selectedColor && showWheelOptions && (
         <>
+         <hr />
           <h1>Jante</h1>
 
           <div className='row text-center jante'>
@@ -528,7 +658,6 @@ function Configurator() {
             <div className="col-md-7 mt-5">
               <img className=' wheel-images' src={wheelImages[selectedColor][selectedWheel]} alt="Selected Wheel" onClick={() => handleWheelChange(selectedWheel)} />
             </div>
-
           </div>
           {/* Bouton "Suivant" pour afficher les options de sellerie */}
           <div className='text-center mb-5'>
@@ -537,11 +666,11 @@ function Configurator() {
 
         </>
       )}
-
       {/* //////////////////////Options de sellerie////////////// */}
 
       {selectedColor && showSellerieOptions && (
         <div className="sellerie-options">
+           <hr />
           <h1>SELLERIE</h1>
           <div className='row text-center mb-5 mt-5'>
             <div className='col-md-8'>
@@ -558,7 +687,7 @@ function Configurator() {
                 </div>
               </div>
             </div>
-
+            
             <div className='col-md-4'>
               <div className='row'>
                 {sellerieOptions.map((sellerieOption) => (
@@ -582,28 +711,47 @@ function Configurator() {
       )}
       {/* //////////////////PARTIE EQUIPEMENT /////////////////  */}
       {selectedColor && showEquipementOptions && (
-        <section id="equipments" className="bg-slate-50">
+        <>
+          <section id="equipments" className="bg-slate-50">
+            <hr />
+            <div className="w-100 text-center pt-10 my-8">
+              <h1 className="text-3xl font-semibold text-gray-600 text-jost">Equipements</h1>
+            </div>
+            <div className="container w-11/12 mx-auto py-12">
+              <div className="w-full flex flex-col flex-wrap my-2 justify-center md:flex-row sm:flex-row">
+                {renderEquipments()}
+              </div>
+            </div>
+
+          </section>
+          {/* Bouton "Suivant" pour afficher les options les equipement */}
+          <div className='text-center mb-5'>
+            <button className='btn' onClick={handleNextButtonEquipementClick}>Suivant</button>
+          </div>
+        </>
+      )}
+      {/* //////////////////PARTIE ACCESSOIRES /////////////////  */}
+      {selectedColor && showAccessoiresOptions && (
+        <section id="accessories" className="bg-slate-50">
           <hr />
           <div className="w-100 text-center pt-10 my-8">
-            <h1 className="text-3xl font-semibold text-gray-600 text-jost">Equipements</h1>
+            <h1 className="text-3xl font-semibold text-gray-600 text-jost">Accessoires</h1>
           </div>
           <div className="container w-11/12 mx-auto py-12">
             <div className="w-full flex flex-col flex-wrap my-2 justify-center md:flex-row sm:flex-row">
-              {renderEquipments()}
+              {renderAccessories()}
             </div>
           </div>
-
         </section>
-
-
-
       )}
+
       <Summary
         selectedOptions={selectedOptions}
         basePrice={basePrice}
         colorPrice={colorPrice}
         wheelPrice={wheelPrice}
         selleriePrice={selleriePrice}
+        selectedOptionsAcc={selectedOptionsAcc}
       />
     </div>
   );
