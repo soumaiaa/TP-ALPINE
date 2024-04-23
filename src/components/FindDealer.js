@@ -1,29 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
 function FindDealer() {
-  const handleOrder = () => {
-    // Ajoutez votre logique ici pour passer une commande
-    console.log('Order placed!');
-  };
-
-  useEffect(() => {
-    // Vérifiez que window.google est défini et contient la propriété maps
-    if (window.google && window.google.maps) {
-      const map = new window.google.maps.Map(document.getElementById('map'), {
-        center: { lat: 45.754070, lng: 4.828798 },
-        zoom: 15,
-      });
-  
-      new window.google.maps.Marker({
-        position: { lat: 45.754070, lng: 4.828798 },
-        map: map,
-        title: "Centre Alpine Villefranche-Sur-Saône",
-      });
-    } else {
-      // Gérez le cas où la bibliothèque Google Maps n'est pas chargée
-      console.error('La bibliothèque Google Maps n\'est pas chargée.');
-    }
-  }, []);
 
   return (
     <div className='row mt-3 mb-3'>
@@ -33,13 +10,13 @@ function FindDealer() {
       </div>
       </div>
       <div className='col-md-4'>
-      <h2>Find a Dealer</h2>
-      <p>Nearest Dealer to Your Location</p>
-      <p>(99 kms)</p>
-      <p>Centre Alpine Villefranche-Sur-Saône</p>
-      <p>1057 Av. Edouard Herriot, 69400 Villefranche-sur-Saône</p>
-      <p>0474063110</p>
-      <button className='btn' onClick={handleOrder}>Order Here</button>
+      <h2>Contact</h2>
+      <p>ALPINE VOITURE</p>
+      <p>alpine@gmail.com</p>
+      <p>Garage-404</p>
+      <p>8 Rue Tarentaize, 42000 Saint-Étienne</p>
+      <p>0400000000</p>
+     
       </div>
      
     </div>

@@ -1,0 +1,83 @@
+
+.form-container {
+ width: 100%;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding-top: 5px;
+  }
+  
+  .reserverh1 {
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+  }
+  
+  .form-container label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+  }
+  
+  .form-container input[type="text"],
+  .form-container input[type="email"],
+  .form-container input[type="tel"],
+  .form-container textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .form-container textarea {
+    height: 100px;
+  }
+  
+  .form-container button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .form-container button:hover {
+    background-color: #0056b3;
+  }
+  .reservation-summary {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .reservation-summary h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+  
+  .reservation-summary ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .reservation-summary li {
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+  
+  .mb-5 {
+    margin-bottom: 20px;
+  }
+  
+  .mt-5 {
+    margin-top: 20px;
+  }
+  

@@ -8,6 +8,7 @@ import Footer from './Footer';
 import '../styles/App.css';
 import FindDealer from './FindDealer';
 import VersionSelection from './VersionSelection';
+import Reserver from './Reserver';
 function App() {
   return (
     <Router>
@@ -19,6 +20,7 @@ function App() {
           <Route path="/summary" element={<Summary />} />          
           <Route path="/version-selection" element={ <VersionSelection />} />
           <Route path="/find-dealer" element={ <FindDealer /> } />
+          <Route path="/Reserver" element={<Reserver />} />
         </Routes>
         <Footer />
       </div>

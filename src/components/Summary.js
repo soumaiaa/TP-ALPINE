@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
-function Summary({ selectedOptions, selectedOptionsAcc, basePrice, colorPrice, wheelPrice, selleriePrice }) {
+function Summary({ selectedOptions,selectedVersion, selectedWheel,selectedSellerie, selectedOptionsAcc, basePrice, colorPrice, wheelPrice, selleriePrice, selectedColor }) {
   // Calculate total price
   const [totalPrice, setTotalPrice] = useState(0);
   const [showOptions, setShowOptions] = useState(false);
@@ -38,10 +38,10 @@ function Summary({ selectedOptions, selectedOptionsAcc, basePrice, colorPrice, w
         <h2 className='text-center'> <FontAwesomeIcon icon={faShoppingCart} onClick={toggleOptions} /></h2>
         {showOptions && (
           <ul>
-            <li>Prix de base: {basePrice}€</li>
-            <li>Couleur: {colorPrice}€</li>
-            <li>Jantes:{wheelPrice}€</li>
-            <li>Sellerie:{selleriePrice}€</li>
+            <li>Version {selectedVersion}: {basePrice}€</li>
+            <li>Couleur {selectedColor}: {colorPrice}€</li>
+            <li>Jantes {selectedWheel}:{wheelPrice}€</li>
+            <li>Sellerie {selectedSellerie}:{selleriePrice}€</li>
             {/* Display selected accessory options */}
             {Object.entries(selectedOptionsAcc).map(([category, options]) => (
               Array.isArray(options) && options.map((option, index) => (

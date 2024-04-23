@@ -621,7 +621,7 @@ function Configurator() {
 
       {selectedColor && showWheelOptions && (
         <>
-         <hr />
+          <hr />
           <h1>Jante</h1>
 
           <div className='row text-center jante'>
@@ -670,7 +670,7 @@ function Configurator() {
 
       {selectedColor && showSellerieOptions && (
         <div className="sellerie-options">
-           <hr />
+          <hr />
           <h1>SELLERIE</h1>
           <div className='row text-center mb-5 mt-5'>
             <div className='col-md-8'>
@@ -687,7 +687,7 @@ function Configurator() {
                 </div>
               </div>
             </div>
-            
+
             <div className='col-md-4'>
               <div className='row'>
                 {sellerieOptions.map((sellerieOption) => (
@@ -732,18 +732,31 @@ function Configurator() {
       )}
       {/* //////////////////PARTIE ACCESSOIRES /////////////////  */}
       {selectedColor && showAccessoiresOptions && (
-        <section id="accessories" className="bg-slate-50">
-          <hr />
-          <div className="w-100 text-center pt-10 my-8">
-            <h1 className="text-3xl font-semibold text-gray-600 text-jost">Accessoires</h1>
-          </div>
-          <div className="container w-11/12 mx-auto py-12">
-            <div className="w-full flex flex-col flex-wrap my-2 justify-center md:flex-row sm:flex-row">
-              {renderAccessories()}
+        <>
+          <section id="accessories" className="bg-slate-50">
+            <hr />
+            <div className="w-100 text-center pt-10 my-8">
+              <h1 className="text-3xl font-semibold text-gray-600 text-jost">Accessoires</h1>
             </div>
-          </div>
-        </section>
-      )}
+            <div className="container w-11/12 mx-auto py-12">
+              <div className="w-full flex flex-col flex-wrap my-2 justify-center md:flex-row sm:flex-row">
+                {renderAccessories()}
+              </div>
+            </div>
+          </section>
+          <div className='text-center mb-5 mt-5'>
+         
+
+          
+              <Link to={`/Reserver?selectedOptions=${JSON.stringify(selectedOptions)}&selectedOptionsAcc=${JSON.stringify(selectedOptionsAcc)}&selectedVersion=${selectedVersion}&basePrice=${basePrice}&selectedColor=${selectedColor}&colorPrice=${colorPrice}&selectedWheel=${selectedWheel}&wheelPrice=${wheelPrice}&selectedSellerie=${selectedSellerie}&selleriePrice=${selleriePrice}`}>
+                <button className="custom-button">Réserver votre voiture</button>
+              </Link>
+                
+            </div>
+       
+        </>
+      )
+      }
 
       <Summary
         selectedOptions={selectedOptions}
@@ -752,8 +765,12 @@ function Configurator() {
         wheelPrice={wheelPrice}
         selleriePrice={selleriePrice}
         selectedOptionsAcc={selectedOptionsAcc}
+        selectedColor={selectedColor}
+        selectedWheel={selectedWheel}
+        selectedSellerie={selectedSellerie}
+        selectedVersion={selectedVersion.toUpperCase()}
       />
-    </div>
+    </div >
   );
 }
 
